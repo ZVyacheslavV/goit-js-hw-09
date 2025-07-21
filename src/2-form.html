@@ -5,15 +5,51 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GOIT HW 09</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <main>
-      <ul>
-        <li><a href="./1-gallery.html">Gallery</a></li>
-        <li><a href="./2-form.html">Form</a></li>
-      </ul>
+      <a href="./index.html">Go back</a></p>
+
+      <form class="feedback-form" autocomplete="off">
+      <label class="login-label">
+        Email
+        <input
+          class="login-input login-email-input"
+          type="email"
+          name="email"
+          placeholder="Type area"
+        />
+      </label>
+      <label class="login-label">
+        Message
+        <input
+          class="login-input login-message-input"
+          rows="8"
+          name="message"
+          placeholder="Type area"
+        />
+      </label>
+      <button class="login-submit-btn" type="submit">Submit</button>
+    </form>
     </main>
+
     <script type="module" src="./js/2-form.js"></script>
   </body>
 </html>
