@@ -14,7 +14,7 @@ const formData = {
   message: savedData.message ?? '',
 };
 
-//Collecting data from inputs with destucturization target object
+//Collecting data from inputs with destucturization of the target object
 refs.feedbackForm.addEventListener('input', e => {
   const { name, value } = e.target;
   formData[name] = value.trim();
