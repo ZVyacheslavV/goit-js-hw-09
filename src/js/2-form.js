@@ -3,6 +3,7 @@ const refs = {
 };
 const localStorageKey = 'feedback-form-state';
 
+//Retrieving data from local storage
 const savedData = JSON.parse(localStorage.getItem(localStorageKey)) ?? {};
 
 refs.feedbackForm.elements.email.value = savedData.email ?? '';
@@ -13,12 +14,14 @@ const formData = {
   message: savedData.message ?? '',
 };
 
+//Collecting data from inputs with destucturization target object
 refs.feedbackForm.addEventListener('input', e => {
   const { name, value } = e.target;
   formData[name] = value.trim();
   localStorage.setItem(localStorageKey, JSON.stringify(formData));
 });
 
+//Form-submit with resets and void check
 refs.feedbackForm.addEventListener('submit', e => {
   e.preventDefault();
 
