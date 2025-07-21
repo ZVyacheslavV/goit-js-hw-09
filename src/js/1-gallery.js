@@ -66,7 +66,7 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-console.log(gallery);
+// console.log(gallery);
 
 const galleryListIns = images
   .map(
