@@ -21,3 +21,7 @@
 .gallery li img:hover {
   transform: scale(1.04);
 }
+
+.bottom-image-text {
+  color: red;
+}

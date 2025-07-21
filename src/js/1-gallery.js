@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -66,8 +69,6 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-// console.log(gallery);
-
 const galleryListIns = images
   .map(
     ({ preview, original, description }) =>
@@ -76,7 +77,6 @@ const galleryListIns = images
           <img
             class="gallery-image"
             src="${preview}"
-            data-source="${original}"
             alt="${description}"
           />
         </a>
@@ -86,14 +86,25 @@ const galleryListIns = images
 
 gallery.insertAdjacentHTML('beforeend', galleryListIns);
 
-const handleUserGalleryClick = e => {
+const galleryLightBox = new SimpleLightbox('.gallery a', {
+  /* overlayOpacity: 1, */
+  /* overlay: true, */
+  /* captions: true, */
+  /* captionSelector: 'bottom-image-text', */
+  captionDelay: 250,
+  /* captionType: 'text', */
+});
+/* gallery.on('show.simplelightbox', function () {
+  // Do something…
+}); */
+
+/* const handleUserGalleryClick = e => {
   e.preventDefault();
   if (e.target.nodeName !== 'IMG') return;
 
-  //   console.log(e.target.dataset.source);
-  basicLightbox
+    basicLightbox
     .create(`<img width="1112" height="640" src="${e.target.dataset.source}">`)
     .show();
-};
+}; */
 
-gallery.addEventListener('click', handleUserGalleryClick);
+/* gallery.addEventListener('click', handleUserGalleryClick); */
