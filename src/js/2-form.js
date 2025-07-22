@@ -1,3 +1,6 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 const refs = {
   feedbackForm: document.querySelector('.feedback-form'),
 };
@@ -26,7 +29,11 @@ refs.feedbackForm.addEventListener('submit', e => {
   e.preventDefault();
 
   if (!formData.email || !formData.message)
-    return alert('Fill please all fields');
+    return iziToast.info({
+      message: 'Fill please all fields!',
+      position: 'center',
+      timeout: 1500,
+    });
   console.log(formData);
 
   formData.email = '';
