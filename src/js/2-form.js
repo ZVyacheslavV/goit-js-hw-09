@@ -4,10 +4,10 @@ import 'izitoast/dist/css/iziToast.min.css';
 const refs = {
   feedbackForm: document.querySelector('.feedback-form'),
 };
-const localStorageKey = 'feedback-form-state';
+const LOCAL_STORAGE_KEY = 'feedback-form-state';
 
 //Retrieving data from local storage
-const savedData = JSON.parse(localStorage.getItem(localStorageKey)) ?? {};
+const savedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? {};
 
 refs.feedbackForm.elements.email.value = savedData.email ?? '';
 refs.feedbackForm.elements.message.value = savedData.message ?? '';
@@ -17,11 +17,11 @@ const formData = {
   message: savedData.message ?? '',
 };
 
-//Collecting data from inputs with destucturization of the target object
+//Collecting data from inputs with destructuring of the target object
 refs.feedbackForm.addEventListener('input', e => {
   const { name, value } = e.target;
   formData[name] = value.trim();
-  localStorage.setItem(localStorageKey, JSON.stringify(formData));
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(formData));
 });
 
 //Form-submit with resets and void check
@@ -36,8 +36,28 @@ refs.feedbackForm.addEventListener('submit', e => {
     });
   console.log(formData);
 
-  formData.email = '';
-  formData.message = '';
-  localStorage.removeItem(localStorageKey);
+  formData = { email: '', message: '' };
+  localStorage.removeItem(LOCAL_STORAGE_KEY);
   refs.feedbackForm.reset();
 });
+
+//Another variant (addition) from teacher:
+/* document.addEventListener('DOMContentLoaded', () => {
+  const savedData = JSON.parse(localStorage.getItem(localStorageKey)) ?? {};
+
+  refs.feedbackForm.elements.email.value = savedData.email ?? '';
+  refs.feedbackForm.elements.message.value = savedData.message ?? '';
+});
+
+function saveToLS(key, value) {
+  return localStorage.setItem(key, JSON.stringify(value));
+}
+
+function getFromLS(key, defaultValue) {
+  const jsonData = localStorage.getItem(key);
+  try {
+    return JSON.parse(jsonData);
+  } catch {
+    defaultValue || jsonData;
+  }
+} */
