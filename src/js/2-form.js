@@ -12,15 +12,16 @@ const savedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? {};
 refs.feedbackForm.elements.email.value = savedData.email ?? '';
 refs.feedbackForm.elements.message.value = savedData.message ?? '';
 
-const formData = {
+let formData = {
   email: savedData.email ?? '',
   message: savedData.message ?? '',
 };
 
-//Collecting data from inputs with destructuring of the target object
+//Collecting data from inputs (with destructuring of the target object - old)
 refs.feedbackForm.addEventListener('input', e => {
-  const { name, value } = e.target;
-  formData[name] = value.trim();
+  /*   const { name, value } = e.target;
+  formData[name] = value.trim(); */
+  formData[e.target.name] = e.target.value.trim();
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(formData));
 });
 
